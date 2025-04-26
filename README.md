@@ -49,8 +49,8 @@ DEFAULT_AI_MODEL=gemini
 BOT_OWNER_ID=your_discord_user_id_here
 \`\`\`
 - Bạn có thể thêm một người dùng khác để sử dụng bot bằng cách thêm một dòng BOT_OWNER_ID xuống bên dưới và thêm id người dùng mà bạn muốn sử dụng bot vào
-## Định dạng tệp hỗ trợ
 
+## Định dạng tệp hỗ trợ
 - YAML (.yml, .yaml)  
 - JSON (.json)  
 - Properties (.properties, .lang)  
@@ -59,8 +59,13 @@ BOT_OWNER_ID=your_discord_user_id_here
 - Tệp văn bản (.txt)  
 - Và nhiều hơn nữa  
 
+## Cách cài đặt bot và chạy bot
+1. `git clone https://github.com/Ngocthedev/VieTranslator-Discord-Bot.git`
+2. `cd VieTranslator-Discord-Bot`
+3. `npm install`
+4. truy cập tệp .env trong file bot, thêm token bot, api key gemini (không cần thêm cả 9 hay 10 key), thêm bot owner id để sử dụng bot.
+5. `npm start` hoặc `npm run dev` nếu lệnh start không hoạt động.
 ## Cách hoạt động
-
 1. Người dùng gửi tệp kèm lệnh `!viethoa`  
 2. Bot kiểm tra xem người dùng có được phép sử dụng bot không (id người dùng nằm trong mục .env dòng Owner ID)  
 3. Bot tải xuống và xử lý tệp  
