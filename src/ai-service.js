@@ -1,6 +1,6 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
-import { getMaxApiKeys } from './user-management.js';
+// import { getMaxApiKeys } from './user-management.js';
 import chalk from 'chalk';
 import pLimit from 'p-limit';
 
@@ -14,30 +14,31 @@ const MAX_CHUNK_SIZE = 2500;
  * @param {string} userId - User ID to determine max keys
  * @returns {Promise<Array<string>>} - Array of API keys
  */
+
+
 async function getGeminiApiKeys(userId) {
-  const keys = [];
-  
-  // Get the maximum number of keys this user can use
-  const maxKeys = await getMaxApiKeys(userId);
-  
-  // Count how many valid keys are actually available in the environment
+  let keys = [];
+
+  const maxKeys = 9; // Maximum number of keys to use
+
   let availableKeysCount = 0;
+
   for (let i = 0; i < 10; i++) {
     const keyName = i === 0 ? 'GEMINI_API_KEY' : `GEMINI_API_KEY_${i}`;
     if (process.env[keyName]) {
       availableKeysCount++;
       
-      // Add key if we haven't reached the user's limit
       if (keys.length < maxKeys) {
         keys.push(process.env[keyName]);
       }
     }
   }
-  
-  console.log(chalk.cyan(`User ${userId} can use up to ${maxKeys} API keys. Found ${keys.length} available keys out of ${availableKeysCount} total configured keys.`));
-  
+
+  console.log(chalk.cyan(`Người dùng ${userId} có thể sử dụng tối đa ${maxKeys} khóa API. Đã tìm thấy ${keys.length} khóa có sẵn trong tổng số ${availableKeysCount} khóa được cấu hình.`));
+
   return keys;
 }
+
 
 /**
  * Splits text into manageable chunks for AI processing

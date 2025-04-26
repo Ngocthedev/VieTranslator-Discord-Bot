@@ -44,7 +44,7 @@ export async function registerCommands(client) {
 
     new SlashCommandBuilder()
       .setName('reload')
-      .setDescription('Tải lại các lệnh của bot')
+      .setDescription('Tải lại các lệnh của bot'),
   ];
 
   try {
@@ -208,6 +208,10 @@ async function handleSettingsCommand(interaction) {
 async function handleHelpCommand(interaction) {
   await interaction.reply({
     embeds: [{
+      author: {
+        name: 'Tác giả: Demure',
+        icon_url: interaction.client.user.displayAvatarURL()
+      },
       title: '📚 Hướng dẫn sử dụng VietHoa Bot',
       description: 'Bot giúp dịch các tệp cấu hình và ngôn ngữ của Minecraft sang tiếng Việt.',
       fields: [
@@ -248,6 +252,7 @@ async function handleHelpCommand(interaction) {
     }]
   });
 }
+
 
 /**
  * Handle test command
@@ -294,42 +299,42 @@ async function handleTestCommand(interaction) {
  * Handle reload command
  * @param {Interaction} interaction - Discord interaction
  */
-async function handleReloadCommand(interaction) {
-  // Check if user is bot owner
-  if (interaction.user.id !== process.env.BOT_OWNER_ID) {
-    await interaction.reply({
-      embeds: [{
-        title: '❌ Không có quyền',
-        description: 'Chỉ chủ sở hữu bot mới có thể sử dụng lệnh này.',
-        color: 0xe74c3c,
-        timestamp: new Date().toISOString()
-      }],
-      ephemeral: true
-    });
-    return;
-  }
+// async function handleReloadCommand(interaction) {
+//   // Check if user is bot owner
+//   if (interaction.user.id !== process.env.BOT_OWNER_ID) {
+//     await interaction.reply({
+//       embeds: [{
+//         title: '❌ Không có quyền',
+//         description: 'Chỉ chủ sở hữu bot mới có thể sử dụng lệnh này.',
+//         color: 0xe74c3c,
+//         timestamp: new Date().toISOString()
+//       }],
+//       ephemeral: true
+//     });
+//     return;
+//   }
 
-  await interaction.deferReply();
+//   await interaction.deferReply();
 
-  try {
-    await registerCommands(interaction.client);
+//   try {
+//     await registerCommands(interaction.client);
     
-    await interaction.editReply({
-      embeds: [{
-        title: '✅ Tải lại thành công',
-        description: 'Đã tải lại tất cả các lệnh của bot.',
-        color: 0x2ecc71,
-        timestamp: new Date().toISOString()
-      }]
-    });
-  } catch (error) {
-    await interaction.editReply({
-      embeds: [{
-        title: '❌ Lỗi tải lại',
-        description: `Đã xảy ra lỗi khi tải lại các lệnh: ${error.message}`,
-        color: 0xe74c3c,
-        timestamp: new Date().toISOString()
-      }]
-    });
-  }
-}
+//     await interaction.editReply({
+//       embeds: [{
+//         title: '✅ Tải lại thành công',
+//         description: 'Đã tải lại tất cả các lệnh của bot.',
+//         color: 0x2ecc71,
+//         timestamp: new Date().toISOString()
+//       }]
+//     });
+//   } catch (error) {
+//     await interaction.editReply({
+//       embeds: [{
+//         title: '❌ Lỗi tải lại',
+//         description: `Đã xảy ra lỗi khi tải lại các lệnh: ${error.message}`,
+//         color: 0xe74c3c,
+//         timestamp: new Date().toISOString()
+//       }]
+//     });
+//   }
+// }

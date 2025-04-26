@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import yaml from 'js-yaml';
 import path from 'path';
 import { translateWithGemini, translateWithOpenAI } from './ai-service.js';
-import { canUseBot } from './user-management.js';
+// import { canUseBot } from './user-management.js';
 import chalk from 'chalk';
 
 /**
@@ -15,10 +15,10 @@ import chalk from 'chalk';
  */
 export async function translateFile(filePath, fileExtension, userId, progressCallback = null) {
   // Check if user can use the bot
-  const { allowed, reason } = await canUseBot(userId);
-  if (!allowed) {
-    throw new Error(reason);
-  }
+  // const { allowed, reason } = await canUseBot(userId);
+  // if (!allowed) {
+  //   throw new Error(reason);
+  // }
   
   // Read file content
   const content = await fs.readFile(filePath, 'utf8');
