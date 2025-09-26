@@ -75,3 +75,5 @@ BOT_OWNER_ID=your_discord_user_id_here
 7. Bot ghép các đoạn đã dịch và kiểm tra tính toàn vẹn của bản dịch  
 8. Bot gửi tệp đã dịch lại cho người dùng qua DM  
 9. Bot dọn dẹp các tệp tạm  
+## DONATE ỦNG HỘ DEV
+  - STK MB BANK: 23201913121817 
