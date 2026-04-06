@@ -45,7 +45,7 @@ OPENROUTER_API_KEY_3=
 OPENROUTER_API_KEY_4=
 OPENROUTER_API_KEY_5=
 # Thêm nhiều api key OpenRouter nếu cần
-- bạn có thể lấy api key OpenRouter tại `[https://aistudio.google.com/apikey](https://openrouter.ai/workspaces/default/keys)`
+- bạn có thể lấy api key OpenRouter tại `(https://openrouter.ai/workspaces/default/keys)`
 # Mô hình AI mặc định
 DEFAULT_AI_MODEL=stepfun/step-3.5-flash:free
 
