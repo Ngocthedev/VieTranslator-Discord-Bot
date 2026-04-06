@@ -7,17 +7,19 @@ VietHoa Bot là một bot Discord được thiết kế để dịch các tệp 
 - Dịch tệp cấu hình plugin Minecraft sang tiếng Việt  
 - Giữ nguyên cấu trúc và chức năng mã  
 - Hỗ trợ nhiều định dạng tệp (.yml, .json, .properties, .lang, .sk, v.v.)  
-- Sử dụng các mô hình AI tiên tiến (Gemini 2.0 Flash hoặc GPT-4)  
+- Sử dụng các mô hình AI tiên tiến tại   
 - Hỗ trợ nhiều khóa API song song để dịch  
 - Lệnh Discord đơn giản  
-- Hoạt động cả trong kênh máy chủ và tin nhắn trực tiếp  
+- Hoạt động cả trong kênh máy chủ và tin nhắn trực tiếp
 
+## Bot API
+- Hiện tại với V2.0, bot đã hỗ trợ Endpoint riêng khi host bot, hỗ trợ một số studio trong việc làm web dịch.
+- khi host bot thành công người dùng cần dùng lệnh để tạo key api để web có thể sử dụng endpoint của bot.
 ## Lệnh
 
 ### Lệnh người dùng
 - `!viethoa` - Dịch tệp đính kèm sang tiếng Việt  
-- `/ping` - Kiểm tra độ trễ phản hồi của bot  
-- `/cai` - Hiển thị mô hình AI hiện đang sử dụng  
+- `/ping` - Kiểm tra độ trễ phản hồi của bot    
 - `/test` - Thử dịch một đoạn văn ngắn  
 - `/help` - Hiện các lệnh và cách dùng bot
 ## Cài đặt
@@ -32,18 +34,20 @@ VietHoa Bot là một bot Discord được thiết kế để dịch các tệp 
 Tạo tệp `.env` với các biến sau:
 
 \`\`\`
-# Token Bot Discord
-DISCORD_TOKEN=your_discord_bot_token_here
+# Discord Bot Token
+DISCORD_TOKEN=
 
-# Khóa API AI (có thể thêm nhiều khóa Gemini)
-OPENAI_API_KEY=your_openai_api_key_here
-GEMINI_API_KEY=your_gemini_api_key_here
-GEMINI_API_KEY_1=your_second_gemini_api_key_here
-GEMINI_API_KEY_2=your_third_gemini_api_key_here
-# Thêm nhiều khóa Gemini nếu cần (tối đa GEMINI_API_KEY_9)
-- bạn có thể lấy api key gemini tại `https://aistudio.google.com/apikey`
-# Mô hình AI mặc định (openai hoặc gemini)
-DEFAULT_AI_MODEL=gemini
+# AI API Keys
+OPENROUTER_API_KEY=
+OPENROUTER_API_KEY_1=
+OPENROUTER_API_KEY_2=
+OPENROUTER_API_KEY_3=
+OPENROUTER_API_KEY_4=
+OPENROUTER_API_KEY_5=
+# Thêm nhiều api key OpenRouter nếu cần
+- bạn có thể lấy api key OpenRouter tại `[https://aistudio.google.com/apikey](https://openrouter.ai/workspaces/default/keys)`
+# Mô hình AI mặc định
+DEFAULT_AI_MODEL=stepfun/step-3.5-flash:free
 
 # ID chủ bot (cho lệnh quản trị)
 BOT_OWNER_ID=your_discord_user_id_here
